@@ -19,9 +19,7 @@ public class CT02_Tests {
         WebDriver navegador = new ChromeDriver();
         navegador.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         navegador.get("https://www.saucedemo.com/v1/");
-
-
-
+        
         navegador.findElement(By.id("user-name")).sendKeys("standard_user");
         navegador.findElement(By.id("password")).sendKeys("secret_sauce");
         navegador.findElement(By.id("login-button")).click();
