@@ -11,10 +11,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 @DisplayName("Testes automatizados da funcionalidade do título link de cada produto")
-public class ProductPageTests {
+public class CT14_Tests {
     @Test
     @DisplayName("Abrir a página com as informações do produto")
-    public void testAbrirAPaginaComAsInformacoesDoProduto(){
+    public void testPurchase(){
         WebDriverManager.chromedriver().setup();
         WebDriver navegador = new ChromeDriver();
         navegador.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));

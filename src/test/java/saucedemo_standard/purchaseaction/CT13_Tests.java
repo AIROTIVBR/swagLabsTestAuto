@@ -1,4 +1,4 @@
 package saucedemo_standard.purchaseaction;
 
-public class PurchaseAction {
+public class CT13_Tests {
 }

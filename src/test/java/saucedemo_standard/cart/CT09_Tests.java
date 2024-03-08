@@ -26,6 +26,21 @@ public class CT09_Tests {
         navigator.findElement(By.id("password")).sendKeys("secret_sauce");
         navigator.findElement(By.id("login-button")).click();
 
+        List<WebElement> addButtons = navigator.findElements(By.className("btn_primary"));
+
+        for (WebElement add : addButtons){
+            navigator.findElement(By.className("btn_primary")).click();
+        }
+
+        String seloBefore = navigator.findElement(By.className("fa-layers-counter")).getText();
+
+        List<WebElement> removeButtons = navigator.findElements(By.className("btn_secondary"));
+
+        for (WebElement remove : removeButtons){
+            navigator.findElement(By.className("btn_secondary")).click();
+        }
+
+        String seloAfter = "0";
 
         navigator.quit();
     }

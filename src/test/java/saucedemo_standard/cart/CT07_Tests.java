@@ -27,21 +27,27 @@ public class CT07_Tests {
         navigator.findElement(By.id("password")).sendKeys("secret_sauce");
         navigator.findElement(By.id("login-button")).click();
 
+        WebElement[] productlinks = navigator.findElements(By.className("inventory_item_name")).toArray(new WebElement[0]);
+
+        String[] links = Arrays.stream(productlinks)
+                .map(WebElement::getText)
+                .toArray(String[]::new);
+
         List<WebElement> addButtons = navigator.findElements(By.className("btn_primary"));
 
         for (WebElement button : addButtons){
             navigator.findElement(By.className("btn_primary")).click();
         }
 
-        WebElement[] buttoncontent = navigator.findElements(By.className("btn_secondary")).toArray(new WebElement[0]);
+        navigator.findElement(By.className("svg-inline--fa")).click();
 
-        String[] content = Arrays.stream(buttoncontent)
+        WebElement[] cartProducts = navigator.findElements(By.className("inventory_item_name")).toArray(new WebElement[0]);
+
+        String[] products = Arrays.stream(cartProducts)
                 .map(WebElement::getText)
                 .toArray(String[]::new);
 
-        String[] expect = {"REMOVE", "REMOVE", "REMOVE", "REMOVE", "REMOVE", "REMOVE"};
-
-        Assertions.assertArrayEquals(content,expect);
+        Assertions.assertArrayEquals(products,links);
         navigator.quit();
     }
 }

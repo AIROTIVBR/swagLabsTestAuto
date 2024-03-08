@@ -38,7 +38,7 @@ public class CT08_Tests {
             if (Arrays.asList(links).contains(text)) {
                 element.click();
                 navigator.findElement(By.className("btn_primary")).click();
-                navigator.navigate().back();
+                navigator.findElement(By.className("inventory_details_back_button")).click();
 
             }
         }
