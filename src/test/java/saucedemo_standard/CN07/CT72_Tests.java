@@ -24,9 +24,11 @@ public class CT72_Tests {
         navegador.findElement(By.id("password")).sendKeys("secret_sauce");
         navegador.findElement(By.id("login-button")).click();
 
-        String nome = navegador.findElement(By.className("//*[@id=item_4_title_link]/div")).getText();
-        String descricao = navegador.findElement(By.xpath("//*[@id=inventory_container]/div/div[1]/div[2]/div")).getText();
-        String preco = navegador.findElement(By.xpath("//*[@id=inventory_container]/div/div[1]/div[3]/div/text()[2]")).getText();
+        String nome = navegador.findElement(By.id("item_4_title_link")).getText();
+        String descricao = navegador.findElement(By.className("inventory_item_desc")).getText();
+        String preco = navegador.findElement(By.className("inventory_item_price")).getText();
+        preco = preco.replace("$", "");
+
 
         navegador.findElement(By.xpath("//*[@id=\"item_4_title_link\"]/div")).click();
         navegador.findElement(By.className("btn_primary")).click();
@@ -39,5 +41,7 @@ public class CT72_Tests {
         Assertions.assertEquals(nome, produto);
         Assertions.assertEquals(descricao, infos);
         Assertions.assertEquals(preco, valor);
+
+        navegador.quit();
     }
 }

@@ -48,6 +48,7 @@ public class CT31_Tests {
                 .toArray(String[]::new);
 
         Assertions.assertArrayEquals(products,links);
+
         navegador.quit();
     }
 }
